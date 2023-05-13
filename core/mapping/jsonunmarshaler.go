@@ -8,7 +8,7 @@ import (
 
 const jsonTagKey = "json"
 
-var jsonUnmarshaler = NewUnmarshaler(jsonTagKey)
+var jsonUnmarshaler = NewUnmarshaler(jsonTagKey, WithDefault())
 
 // UnmarshalJsonBytes unmarshals content into v.
 func UnmarshalJsonBytes(content []byte, v any, opts ...UnmarshalOption) error {

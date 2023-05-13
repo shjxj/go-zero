@@ -111,6 +111,9 @@ func convertTypeFromString(kind reflect.Kind, str string) (any, error) {
 
 		return intValue, nil
 	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+		if str == "" {
+			str = "0"
+		}
 		uintValue, err := strconv.ParseUint(str, 10, 64)
 		if err != nil {
 			return 0, fmt.Errorf("the value %q cannot parsed as uint", str)
@@ -118,6 +121,9 @@ func convertTypeFromString(kind reflect.Kind, str string) (any, error) {
 
 		return uintValue, nil
 	case reflect.Float32, reflect.Float64:
+		if str == "" {
+			str = "0"
+		}
 		floatValue, err := strconv.ParseFloat(str, 64)
 		if err != nil {
 			return 0, fmt.Errorf("the value %q cannot parsed as float", str)

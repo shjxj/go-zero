@@ -101,6 +101,9 @@ func convertTypeFromString(kind reflect.Kind, str string) (any, error) {
 			return false, errTypeMismatch
 		}
 	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
+		if str == "" {
+			str = "0"
+		}
 		intValue, err := strconv.ParseInt(str, 10, 64)
 		if err != nil {
 			return 0, fmt.Errorf("the value %q cannot parsed as int", str)

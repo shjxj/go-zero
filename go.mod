@@ -1,4 +1,4 @@
-module github.com/shjxj/go-zero
+module github.com/zeromicro/go-zero
 
 go 1.18
 
@@ -19,8 +19,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.7
 	github.com/prometheus/client_golang v1.15.1
 	github.com/spaolacci/murmur3 v1.1.0
-	github.com/stretchr/testify v1.8.2
-	github.com/zeromicro/go-zero v0.0.0-00010101000000-000000000000
+	github.com/stretchr/testify v1.8.3
 	go.etcd.io/etcd/api/v3 v3.5.9
 	go.etcd.io/etcd/client/v3 v3.5.9
 	go.mongodb.org/mongo-driver v1.11.6
@@ -118,5 +117,3 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
-
-replace github.com/zeromicro/go-zero => /opt/devs/projects/go/src/github.com/zeromicro/go-zero

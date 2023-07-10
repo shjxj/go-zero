@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/zeromicro/go-zero/tools/goctl/util"
 	"math"
 	"reflect"
 	"strconv"
@@ -102,7 +103,7 @@ func convertTypeFromString(kind reflect.Kind, str string) (any, error) {
 			return false, errTypeMismatch
 		}
 	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
-		if str == "" {
+		if util.IsEmptyStringOrWhiteSpace(str) {
 			str = "0"
 		}
 		intValue, err := strconv.ParseInt(str, 10, 64)
@@ -112,7 +113,7 @@ func convertTypeFromString(kind reflect.Kind, str string) (any, error) {
 
 		return intValue, nil
 	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
-		if str == "" {
+		if util.IsEmptyStringOrWhiteSpace(str) {
 			str = "0"
 		}
 		uintValue, err := strconv.ParseUint(str, 10, 64)
@@ -122,7 +123,7 @@ func convertTypeFromString(kind reflect.Kind, str string) (any, error) {
 
 		return uintValue, nil
 	case reflect.Float32, reflect.Float64:
-		if str == "" {
+		if util.IsEmptyStringOrWhiteSpace(str) {
 			str = "0"
 		}
 		floatValue, err := strconv.ParseFloat(str, 64)

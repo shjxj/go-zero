@@ -89,6 +89,7 @@ func ValidatePtr(v *reflect.Value) error {
 	return nil
 }
 
+// int type default
 func convertTypeFromString(kind reflect.Kind, str string) (any, error) {
 	switch kind {
 	case reflect.Bool:

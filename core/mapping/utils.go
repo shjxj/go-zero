@@ -80,7 +80,7 @@ func SetMapIndexValue(tp reflect.Type, value, key, target reflect.Value) {
 }
 
 // ValidatePtr validates v if it's a valid pointer.
-func ValidatePtr(v *reflect.Value) error {
+func ValidatePtr(v reflect.Value) error {
 	// sequence is very important, IsNil must be called after checking Kind() with reflect.Ptr,
 	// panic otherwise
 	if !v.IsValid() || v.Kind() != reflect.Ptr || v.IsNil() {
@@ -108,7 +108,7 @@ func convertTypeFromString(kind reflect.Kind, str string) (any, error) {
 		}
 		intValue, err := strconv.ParseInt(str, 10, 64)
 		if err != nil {
-			return 0, fmt.Errorf("the value %q cannot parsed as int", str)
+			return 0, fmt.Errorf("the value %q cannot be parsed as int", str)
 		}
 
 		return intValue, nil
@@ -118,7 +118,7 @@ func convertTypeFromString(kind reflect.Kind, str string) (any, error) {
 		}
 		uintValue, err := strconv.ParseUint(str, 10, 64)
 		if err != nil {
-			return 0, fmt.Errorf("the value %q cannot parsed as uint", str)
+			return 0, fmt.Errorf("the value %q cannot be parsed as uint", str)
 		}
 
 		return uintValue, nil
@@ -128,7 +128,7 @@ func convertTypeFromString(kind reflect.Kind, str string) (any, error) {
 		}
 		floatValue, err := strconv.ParseFloat(str, 64)
 		if err != nil {
-			return 0, fmt.Errorf("the value %q cannot parsed as float", str)
+			return 0, fmt.Errorf("the value %q cannot be parsed as float", str)
 		}
 
 		return floatValue, nil
